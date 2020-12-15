@@ -33,4 +33,21 @@ public class UserService {
 		return repo.save(obj);
 	}
 	
+	public User update(User obj) {
+		User newObj = findById(obj.getId());
+		System.out.println("******************************************");
+		System.out.println(newObj.getLogin().getId());
+		updateData(newObj, obj);
+		
+		return repo.save(newObj);
+	}
+	
+	private void updateData(User newObj, User obj) {
+		newObj.setDescription(obj.getDescription());
+		newObj.setImageProfile(obj.getImageProfile());
+		newObj.setName(obj.getName());
+		newObj.setProfile(obj.getProfile());
+		newObj.setLogin(obj.getLogin());
+	}
+	
 }

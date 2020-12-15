@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.student.enuns.Perfil;
 
 import lombok.Getter;
@@ -51,6 +54,7 @@ public class User implements Serializable {
 	@Getter
 	@Setter
 	@OneToOne
+	@Cascade(CascadeType.ALL)
 	private Login login;
 	
 	@Getter
