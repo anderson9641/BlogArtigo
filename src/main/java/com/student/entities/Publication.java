@@ -1,4 +1,4 @@
-package Entities;
+package com.student.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -39,9 +41,11 @@ public class Publication implements Serializable {
 		
 		@Getter
 		@Setter
+		@ManyToOne
 		private User user;
 		
 		@Getter
 		@Setter
+		@OneToMany
 		private List<Comment> Comments;
 }

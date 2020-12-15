@@ -1,4 +1,4 @@
-package Enuns;
+package com.student.enuns;
 
 public enum Perfil {
 	ADMINISTRADOR(1, "ROLE_ADMINISTRADOR"),
