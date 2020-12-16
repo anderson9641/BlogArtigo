@@ -3,12 +3,14 @@ package com.student.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.student.entities.Login;
 import com.student.entities.User;
 import com.student.repositories.LoginRepository;
 import com.student.repositories.UserRepository;
+import com.student.services.exceptions.DataIntegrityException;
 import com.student.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -48,6 +50,16 @@ public class UserService {
 		newObj.setName(obj.getName());
 		newObj.setProfile(obj.getProfile());
 		newObj.setLogin(obj.getLogin());
+	}
+	
+	public void delete(Long id) {
+		findById(id);
+		try {
+			repo.deleteById(id);
+		}
+		catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Data intefrity error");
+		}
 	}
 	
 }

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import com.student.entities.Login;
 import com.student.entities.User;
 import com.student.enuns.Perfil;
-import com.student.repositories.LoginRepository;
 import com.student.repositories.UserRepository;
 
 @Configuration

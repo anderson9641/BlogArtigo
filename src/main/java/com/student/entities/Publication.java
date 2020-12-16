@@ -47,6 +47,6 @@ public class Publication implements Serializable {
 		
 		@Getter
 		@Setter
-		@OneToMany
+		@OneToMany(mappedBy = "publication")
 		private List<Comment> Comments;
 }
